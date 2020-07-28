@@ -10,10 +10,15 @@ I mapped `ctrl+alt+n` to exectute this script.
 ## Usage
 
 ```
-wget https://raw.githubusercontent.com/jc00ke/move-to-next-monitor/master/move-to-next-monitor
-chmod +x move-to-next-monitor
-mv move-to-next-monitor /somewhere/in/your/$PATH
+wget https://raw.githubusercontent.com/jc00ke/move-to-next-monitor/master/move-to-monitor
+chmod +x move-to-monitor
+mv move-to-monitor /somewhere/in/your/$PATH
+# To move to the next it is not necessary to pass a parameter
+move-to-monitor
+# To move to the previous screen use the preview parameter as in the image below.
+move-to-monitor preview
 ```
+![keyboard shortcut](./shortcut.png)
 
 ## Dependencies
 

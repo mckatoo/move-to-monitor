@@ -35,10 +35,20 @@ y_offset=$(xwininfo -id "$window_id" | awk '/Relative upper-left Y:/ { print $4 
 x=$(( x - x_offset))
 y=$(( y - y_offset))
 
-# Compute new X position
-new_x=$((x + display_width))
-# Compute new Y position
-new_y=$((y + display_height))
+# if paramenter exists and is equal preview then subtract new value else sum new value
+if [ "$1" = "preview" ]; then
+  notify-send -i /usr/share/icons/Mint-Y/devices/32/video-display.png "Window moved to previous screen."
+  # Compute new X position
+  new_x=$((x - display_width))
+  # Compute new Y position
+  new_y=$((y - display_height))
+else
+  notify-send -i /usr/share/icons/Mint-Y/devices/32/video-display.png "Window moved to the next screen."
+  # Compute new X position
+  new_x=$((x + display_width))
+  # Compute new Y position
+  new_y=$((y + display_height))
+fi
 
 # If we would move off the right-most monitor, we set it to the left one.
 # We also respect the window's width here: moving a window off more than half its width won't happen.
